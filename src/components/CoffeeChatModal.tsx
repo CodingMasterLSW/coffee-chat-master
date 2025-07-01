@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { Coffee, X, Send } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -12,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Developer } from '@/data/mockData';
+import { useToast } from '@/hooks/use-toast';
 
 interface CoffeeChatModalProps {
   isOpen: boolean;
@@ -22,17 +22,23 @@ interface CoffeeChatModalProps {
 const CoffeeChatModal: React.FC<CoffeeChatModalProps> = ({ isOpen, onClose, developer }) => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
+  const { toast } = useToast();
 
   const handleSubmit = async () => {
+    if (!message.trim()) return;
+    
     setIsSubmitting(true);
     
-    // 실제로는 API 호출을 할 부분이지만, 현재는 모의 처리
+    // 커피챗 신청 처리 (실제로는 API 호출)
     setTimeout(() => {
       setIsSubmitting(false);
       onClose();
-      // 성공 토스트 표시 후 채팅 페이지로 이동
-      navigate(`/chat/${developer.id}`);
+      setMessage('');
+      
+      toast({
+        title: "커피챗 신청 완료",
+        description: `${developer.name}님에게 커피챗을 신청했습니다. 응답을 기다려주세요.`,
+      });
     }, 1500);
   };
 

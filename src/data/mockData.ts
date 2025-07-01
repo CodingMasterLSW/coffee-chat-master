@@ -1,4 +1,3 @@
-
 export interface Developer {
   id: string;
   name: string;
@@ -9,6 +8,22 @@ export interface Developer {
   profileImage: string;
   bio: string;
   location: string;
+}
+
+export interface CoffeeChatRequest {
+  id: string;
+  developerId: string;
+  requesterName: string;
+  requesterMessage: string;
+  status: 'pending' | 'accepted' | 'rejected';
+  createdAt: Date;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: 'user' | 'developer';
+  message: string;
+  timestamp: Date;
 }
 
 export const mockDevelopers: Developer[] = [
@@ -80,7 +95,26 @@ export const mockDevelopers: Developer[] = [
   }
 ];
 
-export const mockChatMessages = [
+export const mockCoffeeChatRequests: CoffeeChatRequest[] = [
+  {
+    id: "req1",
+    developerId: "1",
+    requesterName: "이성우",
+    requesterMessage: "안녕하세요! 현재 백엔드 개발자로 취업을 준비하고 있는 학생입니다. 카카오에서의 실무 경험과 개발 문화에 대해 궁금한 점들이 많아서 커피챗을 신청드리고 싶습니다.",
+    status: "accepted",
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2)
+  },
+  {
+    id: "req2",
+    developerId: "2",
+    requesterName: "김철수",
+    requesterMessage: "네이버에서의 프론트엔드 개발 경험을 듣고 싶습니다!",
+    status: "pending",
+    createdAt: new Date(Date.now() - 1000 * 60 * 30)
+  }
+];
+
+export const mockChatMessages: ChatMessage[] = [
   {
     id: "1",
     sender: "developer",

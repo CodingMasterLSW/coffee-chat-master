@@ -1,23 +1,15 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send, Coffee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { mockDevelopers, mockChatMessages } from '@/data/mockData';
-
-interface Message {
-  id: string;
-  sender: 'user' | 'developer';
-  message: string;
-  timestamp: Date;
-}
+import { mockDevelopers, mockChatMessages, ChatMessage } from '@/data/mockData';
 
 const Chat: React.FC = () => {
   const { developerId } = useParams<{ developerId: string }>();
   const navigate = useNavigate();
-  const [messages, setMessages] = useState<Message[]>(mockChatMessages);
+  const [messages, setMessages] = useState<ChatMessage[]>(mockChatMessages);
   const [newMessage, setNewMessage] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +39,7 @@ const Chat: React.FC = () => {
   const handleSendMessage = () => {
     if (!newMessage.trim()) return;
 
-    const userMessage: Message = {
+    const userMessage: ChatMessage = {
       id: Date.now().toString(),
       sender: 'user',
       message: newMessage,
@@ -64,12 +56,12 @@ const Chat: React.FC = () => {
         "그 부분은 저도 초기에 많이 고민했던 부분입니다.",
         "실무에서는 이런 경우가 많은데요, 제가 겪은 사례를 공유해드릴게요.",
         "기술적인 부분뿐만 아니라 커뮤니케이션도 중요하다고 생각해요.",
-        "추가로 궐금한 점이 있으시면 언제든 물어보세요!"
+        "추가로 궁금한 점이 있으시면 언제든 물어보세요!"
       ];
       
       const randomResponse = responses[Math.floor(Math.random() * responses.length)];
       
-      const developerMessage: Message = {
+      const developerMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: 'developer',
         message: randomResponse,

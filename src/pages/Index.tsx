@@ -1,8 +1,10 @@
 
 import React, { useState, useMemo } from 'react';
-import { Coffee, Users, Search as SearchIcon } from 'lucide-react';
+import { Coffee, Users, Search as SearchIcon, Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SearchBar from '@/components/SearchBar';
 import DeveloperCard from '@/components/DeveloperCard';
+import { Button } from '@/components/ui/button';
 import { mockDevelopers } from '@/data/mockData';
 
 const Index = () => {
@@ -48,6 +50,16 @@ const Index = () => {
                 <Coffee className="w-5 h-5" />
                 <span>간편한 커피챗 신청</span>
               </div>
+            </div>
+            
+            {/* 커피챗 요청 관리 버튼 추가 */}
+            <div className="mt-8">
+              <Link to="/coffee-chat-requests">
+                <Button variant="outline" className="bg-transparent border-amber-200 text-amber-100 hover:bg-amber-500 hover:text-white">
+                  <Settings className="w-4 h-4 mr-2" />
+                  커피챗 요청 관리
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
