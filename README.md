@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/39d1ecc4-ee3d-4c30-8bd4-d8cf9cb78ab9
+## ☕ 주니어 개발자를 위한 '커피챗 마스터' 서비스 README
 
-## How can I edit this code?
+이 문서는 **주니어 개발자 이성우 님(26세)**의 입장에서, 현직 개발자와의 커피챗을 돕는 '커피마스터' 서비스의 핵심 페르소나, 사용자 스토리 및 구현 범위를 설명합니다. 본 프로젝트는 실제 연동 없이 목업(Mocking) 데이터를 활용하여 구현된 **프로토타입 수준**입니다.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+### 📌 사용자
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/39d1ecc4-ee3d-4c30-8bd4-d8cf9cb78ab9) and start prompting.
+| | |
+| --- | --- |
+| **정의** | 현직 개발자와의 커피챗을 통해 진로, 기술 스택, 기업 문화 등 다양한 정보를 얻고 싶어 하는 주니어 개발자 혹은 개발자 지망생 |
+| **겪고 있는 문제** |
+    * 특정 기업이나 분야의 현직 개발자를 개인적으로 찾기 어렵습니다.
+    * 현직 개발자에게 편하게 연락하여 정보를 얻을 기회가 부족합니다.
+    * 비공식적인 조언이나 실제 경험담을 들을 창구가 필요합니다. |
+| **니즈** |
+    * 원하는 조건(기업, 경력 등)의 현직 개발자를 쉽게 검색하고 싶습니다.
+    * 복잡한 절차 없이 현직 개발자에게 커피챗을 신청하고 싶습니다.
+    * 커피챗이 성사되면 1:1로 직접 소통하며 궁금증을 해소하고 싶습니다. |
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+### 📌 페르소나
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+#### 주니어 개발자 - 이성우 (26세)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| | |
+| --- | --- |
+| **이름** | 이성우 |
+| **나이** | 26세 |
+| **목표** | 지원하고 싶은 기업의 현직 개발자와 커피챗을 통해 생생한 정보를 얻고, 취업 준비에 필요한 조언을 구하는 것입니다. |
+| **니즈** |
+    * '기업' 또는 '경력' 키워드를 활용하여 원하는 현직 개발자를 정확하게 검색하고 싶습니다.
+    * 검색 결과에서 마음에 드는 개발자에게 '커피챗 신청하기' 버튼을 눌러 간편하게 요청하고 싶습니다.
+    * 커피챗이 수락되면 바로 1:1 채팅을 시작하여 궁금한 점을 자유롭게 질문하고 답변을 받고 싶습니다. |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📌 시나리오
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+#### **주니어 개발자 시나리오 1: 현직 개발자 검색 및 커피챗 신청**
 
-# Step 3: Install the necessary dependencies.
-npm i
+* **목표**: 원하는 기업의 현직 개발자를 찾아 커피챗을 신청합니다.
+* **상황**: 주니어 개발자 이성우는 지원하고 싶은 기업의 정보를 얻기 위해 현직 개발자와 커피챗을 원합니다. 복잡한 과정 없이 쉽고 빠르게 커피챗을 신청하고 소중한 정보를 얻을 수 있는 '커피마스터' 서비스를 발견합니다.
+* **시나리오**:
+    * **이성우**는 '커피마스터' 웹사이트에 접속합니다.
+    * 메인 페이지 또는 검색 페이지에서 **"카카오", "네이버"**와 같은 **기업명**이나 **"5년차", "백엔드"**와 같은 **경력 키워드**를 입력하여 원하는 현직 개발자를 검색합니다.
+    * 검색 결과에 해당하는 선배 개발자들의 프로필(소속 기업, 경력 등)이 나타나고, 각 프로필 하단의 **`커피챗 신청하기`** 버튼을 확인합니다.
+    * 관심 있는 선배 개발자를 선택하여 **`커피챗 신청하기`** 버튼을 클릭합니다.
+    * **`커피챗 요청이 완료되었습니다. 상대방이 수락하면 1:1 채팅이 시작됩니다.`** 라는 메시지를 확인합니다.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+#### **주니어 개발자 시나리오 2: 커피챗 수락 알림 및 1:1 채팅 시작**
 
-**Edit a file directly in GitHub**
+* **목표**: 신청한 커피챗이 수락되어 현직 개발자와 대화를 시작합니다.
+* **상황**: 이성우가 신청한 커피챗 요청을 선배 개발자가 수락합니다.
+* **시나리오**:
+    * **이성우**는 '커피마스터' 앱으로부터 **선배 개발자가 커피챗 요청을 수락했다는 알림**을 받습니다.
+    * 알림을 클릭하거나 앱에 접속하면, **선배 개발자와의 1:1 채팅방이 자동으로 열립니다.**
+    * **이성우**는 채팅방에서 궁금한 점(예: "안녕하세요! 혹시 카카오 프론트엔드 개발자의 하루 일과는 어떻게 되나요?")을 자유롭게 묻고, **미리 정의된 응답 패턴**에 따라 선배 개발자의 답변을 받으며 대화를 진행합니다.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### 📌 사용자 스토리와 인수 조건
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+#### ✅ **요구사항 1: 맞춤형 현직 개발자 검색 기능**
 
-## What technologies are used for this project?
+* **사용자 스토리**:
+    * 나는 주니어 개발자로서, 특정 기업에 재직 중이거나 특정 경력을 가진 현직 개발자를 쉽게 찾아보고 싶다.
+* **인수 조건**:
+    * **Given**: 사용자가 '커피마스터' 웹사이트에 접속하여 검색 기능을 활용합니다.
+    * **When**: 사용자가 **'기업명' 또는 '경력'** 키워드를 입력하고 검색 버튼을 누릅니다.
+    * **Then**: 입력된 키워드에 부합하는 **현직 개발자 프로필 목록**이 표시됩니다.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+#### ✅ **요구사항 2: 커피챗 신청 기능**
 
-## How can I deploy this project?
+* **사용자 스토리**:
+    * 나는 주니어 개발자로서, 검색한 현직 개발자에게 복잡한 과정 없이 빠르고 간편하게 커피챗을 신청하고 싶다.
+* **인수 조건**:
+    * **Given**: 사용자가 현직 개발자 프로필 목록 또는 상세 페이지를 보고 있습니다.
+    * **When**: 사용자가 원하는 현직 개발자의 프로필 하단에 있는 **`커피챗 신청하기`** 버튼을 클릭합니다.
+    * **Then**: **`커피챗 요청 완료` 메시지**가 표시되며, 해당 요청이 상대방에게 전달됩니다. (Mocking 데이터 기반)
 
-Simply open [Lovable](https://lovable.dev/projects/39d1ecc4-ee3d-4c30-8bd4-d8cf9cb78ab9) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+#### ✅ **요구사항 3: 1:1 채팅 시작 및 모의 대화 기능**
 
-Yes, you can!
+* **사용자 스토리**:
+    * 나는 주니어 개발자로서, 커피챗이 수락되면 현직 개발자와 직접 대화하며 궁금한 점을 묻고 답변을 받고 싶다.
+* **인수 조건**:
+    * **Given**: 사용자가 신청한 커피챗 요청이 현직 개발자에 의해 수락됩니다.
+    * **When**: 사용자가 커피챗 수락 알림을 받거나, 앱 내에서 채팅방에 접속합니다.
+    * **Then**: **선배 개발자와 1:1 채팅이 시작**되고, 미리 정의된 응답 패턴을 통해 질문과 답변을 주고받는 **모의 대화 경험**을 할 수 있습니다.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 구현 범위
+
+* 앱의 UI/UX와 기본적인 화면을 보여주는 **프로토타입 수준**으로 구현합니다.
+* **실제 데이터 연동 없이 목업(Mocking) 데이터**를 활용하여 현직 개발자 목록, 검색 결과, 커피챗 신청, 모의 1:1 채팅 시작 등의 사용자 흐름을 시뮬레이션합니다.
+* 사용자 플로우에 대해 미리 정의된 응답 패턴을 활용합니다.
+
+---
